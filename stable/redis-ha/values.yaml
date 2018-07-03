@@ -4,16 +4,26 @@
 resources:
   server:
     requests:
-      memory: 200Mi
-      cpu: 100m
+      memory: 2000Mi
+      cpu: 500mi
     limits:
-      memory: 700Mi
+      memory: 10000Mi
+      cpu: 1100m
   sentinel:
     requests:
       memory: 200Mi
       cpu: 100m
     limits:
       memory: 200Mi
+
+persistentVolume:
+  enabled: false
+  existingClaim: false
+  storageClass: default
+  annotations: {}
+  accessModes: 'ReadWriteOnce'
+  size: 30Gi
+
 
 ## Node labels and tolerations for pod assignment
 ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
